@@ -1,0 +1,19 @@
+.dashboard {
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr); */
+}
+.menubar {
+  width: 200px;
+  height: 550px;
+  background-color: #0052cc;
+}
+.menubar li {
+  list-style: none;
+}
+.dashboard-body {
+  width: 950px;
+}
+.dashboard-body h3 {
+  text-align: center;
+  margin-top: 20px;
+}
