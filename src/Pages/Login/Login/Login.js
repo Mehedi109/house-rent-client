@@ -1,9 +1,10 @@
-import { Button, Container, Grid, TextField, Typography, CircularProgress, Alert } from '@mui/material';
+
 import React, { useState } from 'react';
+import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-// import logimg from '../../../images/login.png'
+
 
 const Login = () => {
     const [loginData, setloginData] = useState({})
@@ -21,43 +22,41 @@ const Login = () => {
     }
     return (
         <Container>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
-                    <Typography
-                        sx={{ textAlign: 'center' }} variant="body1"
 
-                        gutterBottom>Login</Typography>
-                    <form onSubmit={handleLoginSub}>
-                        <TextField
-                            sx={{ width: 1, m: 1 }}
-                            id="standard-basic" label="Your Email"
-                            name="email"
-                            onChange={handleOnChange} variant="standard" />
-                        <br />
-                        <TextField
-                            sx={{ width: 1, m: 1 }} id="standard-basic" label="Your Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnChange}
-                            variant="standard" />
+            <Form onSubmit={handleLoginSub}>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Form.Label column sm={2}>
+                        Email
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control onChange={handleOnChange} type="email" placeholder="Email" />
+                    </Col>
+                </Form.Group>
 
-                        <Button
-                            sx={{ width: 1, m: 1 }}
-                            type="submit"
-                            variant="contained">Register</Button>
-                        <NavLink
-                            style={{ textDecoration: 'none' }}
-                            to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
-                    </form>
-                    {isLoading && <CircularProgress />}
-                    {user?.email && <Alert severity="success">Register Successfully</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>}
-                </Grid>
-                {/* <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src={logimg} alt="" />
-                </Grid> */}
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+                    <Form.Label column sm={2}>
+                        Password
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control onChange={handleOnChange} type="password" placeholder="Password" />
+                    </Col>
+                </Form.Group>
 
-            </Grid>
+
+                <Button
+                    sx={{ width: 1, m: 1 }}
+                    type="submit"
+                    variant="contained">Register</Button>
+                <NavLink
+                    style={{ textDecoration: 'none' }}
+                    to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
+            </Form>
+            {isLoading && <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>}
+            {user?.email && <Alert variant="danger">Register Successfully</Alert>}
+            {authError && <Alert variant="danger">{authError}</Alert>}
+
         </Container>
     );
 };
