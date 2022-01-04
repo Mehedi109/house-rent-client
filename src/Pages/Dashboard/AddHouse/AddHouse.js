@@ -23,7 +23,7 @@ const AddHouse = () => {
 
     const formData = new FormData();
     formData.append("country", country);
-    formData.append("city", setCity);
+    formData.append("city", city);
     formData.append("rent", rent);
     formData.append("description", description);
     formData.append("image", img);
