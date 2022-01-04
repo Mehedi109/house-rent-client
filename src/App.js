@@ -6,11 +6,12 @@ import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login/Login";
-
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 function App() {
   return (
     <div className="App">
+      {/* <AuthProvider> */}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,6 +21,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
+      {/* </AuthProvider> */}
     </div>
   );
 }
