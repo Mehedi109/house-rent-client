@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blog/Blog";
+import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="/dashboard/addHouse" element={<AddHouse />} />
+          </Route>
         </Routes>
       </Router>
     </div>
