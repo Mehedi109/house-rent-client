@@ -21,8 +21,13 @@ const Header = () => {
               <Nav.Link as={Link} to="/dashboard">
                 Dashboard
               </Nav.Link>
+<<<<<<< HEAD
               <Nav.Link as={Link} to="/login">
                 Login
+=======
+              <Nav.Link as={Link} to="/blog">
+                Blog
+>>>>>>> Mehedi-Alam
               </Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

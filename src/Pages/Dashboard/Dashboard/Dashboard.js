@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -8,7 +9,12 @@ const Dashboard = () => {
       <div className="menubar">
         <li>
           <i className="fal fa-house"></i>
-          <Nav.Link style={{ color: "white" }}>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/addHouse"
+          >
+            {" "}
             <i class="far fa-home" style={{ backgroundColor: "white" }}></i> Add
             House
           </Nav.Link>
@@ -23,7 +29,8 @@ const Dashboard = () => {
         </li>
       </div>
       <div className="dashboard-body">
-        <h3>Dashboard</h3>
+        <h4 className="">Dashboard</h4>
+        <Outlet></Outlet>
       </div>
     </div>
   );

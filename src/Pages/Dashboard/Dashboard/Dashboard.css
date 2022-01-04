@@ -13,7 +13,12 @@
 .dashboard-body {
   width: 950px;
 }
-.dashboard-body h3 {
+.dashboard-body h4 {
+  color: #fff;
+  width: 1062px;
   text-align: center;
-  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  background-color: #fd756c;
 }
