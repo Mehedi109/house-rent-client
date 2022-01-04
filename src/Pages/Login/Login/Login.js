@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import "./Login.css";
 
 const Login = () => {
   const [loginData, setloginData] = useState({});
@@ -26,41 +27,40 @@ const Login = () => {
     e.preventDefault();
   };
   return (
-    <Container>
+    // <Container>
+    <div className="login-form shadow-lg mt-5">
+      <h3>Login</h3>
       <Form onSubmit={handleLoginSub}>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email
+            </Form.Label>
             <Form.Control
               onChange={handleOnChange}
               type="email"
               placeholder="Email"
             />
-          </Col>
-        </Form.Group>
-
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalPassword"
-        >
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
+          </Form.Group>
+        </Col>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formHorizontalPassword"
+          >
+            <Form.Label style={{ textAlign: "start" }}>Password</Form.Label>
             <Form.Control
               onChange={handleOnChange}
               type="password"
               placeholder="Password"
             />
-          </Col>
-        </Form.Group>
-
-        <Button sx={{ width: 1, m: 1 }} type="submit" variant="contained">
-          Register
-        </Button>
+          </Form.Group>
+        </Col>
+        <Button sx={{ width: 1, m: 1 }} type="submit" variant="success">
+          Login
+        </Button>{" "}
+        <br />
         <NavLink style={{ textDecoration: "none" }} to="/register">
           <Button variant="text">New User? Please Register</Button>
         </NavLink>
@@ -72,7 +72,8 @@ const Login = () => {
       )}
       {user?.email && <Alert variant="danger">Register Successfully</Alert>}
       {authError && <Alert variant="danger">{authError}</Alert>}
-    </Container>
+    </div>
+    // </Container>
   );
 };
 

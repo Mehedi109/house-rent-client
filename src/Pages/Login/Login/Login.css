@@ -1,0 +1,13 @@
+@media (min-width: 689px) and (max-width: 1400px) {
+  .login-form {
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 30px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 688px) {
+  form {
+    padding: 20px;
+  }
+}
