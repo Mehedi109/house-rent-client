@@ -11,17 +11,17 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 function App() {
   return (
     <div className="App">
-      {/* <AuthProvider> */}
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </Router>
-      {/* </AuthProvider> */}
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
