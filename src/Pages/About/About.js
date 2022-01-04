@@ -2,14 +2,15 @@ import React from "react";
 import "./About.css";
 import { Container, Row, Col } from "react-bootstrap";
 import img1 from "../../images/img-8.jpg";
-import img2 from "../../images/img-4.jpg";
+import img2 from "../../images/img-2.jpg";
 import Header from "../Shared/Header/Header";
+import Footer from "../Shared/Footer/Footer";
 
 const About = () => {
   return (
     <>
       <Header />
-      <div className="about">
+      <div className="about mb-5">
         <div className="about-banner">
           <h2>About Us</h2>
         </div>
@@ -40,6 +41,7 @@ const About = () => {
           </Container>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

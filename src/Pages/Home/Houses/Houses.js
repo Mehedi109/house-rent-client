@@ -28,7 +28,7 @@ const Houses = () => {
         </Button>
       </InputGroup>
       <Container className="mb-5">
-        <Row>
+        <Row className="g-5">
           <Col xs={12} md={8} lg={4}>
             <Card>
               <Card.Img variant="top" src={img1} />
@@ -43,7 +43,7 @@ const Houses = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+          <Col xs={12} md={8} lg={4}>
             <Card>
               <Card.Img variant="top" src={img2} />
               <Card.Body>
@@ -57,7 +57,8 @@ const Houses = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col>
+
+          <Col xs={12} md={8} lg={4}>
             <Card>
               <Card.Img variant="top" src={img3} />
               <Card.Body>
