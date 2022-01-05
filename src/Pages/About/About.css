@@ -1,23 +1,36 @@
-.about-banner {
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url("../../images/img-8.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.about-header {
+  position: relative;
+}
+.about-header .about-banner {
+  position: absolute;
+  display: block;
+  /* background: #000; */
   height: 80vh;
+  /* opacity: 0.2; */
+  position: relative;
+  z-index: -1;
+}
+.about-banner {
+  background: #000;
+}
+.about-banner div {
+  background-image: url("../../images/img-3.jpg");
+  display: block;
+  /* position: absolute; */
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.3;
 }
 
-.about-banner h2 {
+.about-heading {
   white-space: pre-wrap;
   position: relative;
-  top: 200px;
-  color: red;
-  opacity: 1;
+  bottom: 230px;
+  color: white;
 }
 .about-body {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 .about-content {
   text-align: justify;
