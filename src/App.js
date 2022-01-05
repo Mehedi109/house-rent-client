@@ -7,6 +7,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import About from "./Pages/About/About";
 import Blog from "./Pages/Blog/Blog";
 import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
+import Houses from "./Pages/Dashboard/Houses/Houses";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="/dashboard/addHouse" element={<AddHouse />} />
+            <Route path="/dashboard/showHouse" element={<Houses />} />
           </Route>
         </Routes>
       </Router>
