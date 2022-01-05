@@ -1,31 +1,93 @@
-import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 const AddHouse = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    axios.post("http://localhost:5000/rent", data);
-  };
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [rent, setRent] = useState();
+  const [description, setDescription] = useState();
+  const [img, setImg] = useState(null);
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    if (!img) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("rent", rent);
+    formData.append("description", description);
+    formData.append("image", img);
+    console.log(formData);
+    fetch("https://agile-sierra-38761.herokuapp.com/addCategories", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+    alert("data added");
+  };
   return (
     <div>
-      <h1>Add Services</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("Name")} placeholder="Name" />
+        <input
+          style={{ padding: "5px", margin: "5px", width: "30%" }}
+          {...register("country")}
+          placeholder="Country"
+          onChange={(e) => setCountry(e.target.value)}
+          required
+        />{" "}
         <br />
-        <input type="number" {...register("Price")} placeholder="Price" />
+        <input
+          style={{ padding: "5px", margin: "5px", width: "30%" }}
+          {...register("city")}
+          placeholder="City"
+          onChange={(e) => setCity(e.target.value)}
+          required
+        />{" "}
         <br />
-        <input {...register("discrition")} placeholder="discrition" />
+        <input
+          style={{ padding: "5px", margin: "5px", width: "30%" }}
+          {...register("rent", { required: true })}
+          placeholder="Rent"
+          onChange={(e) => setRent(e.target.value)}
+          required
+        />{" "}
         <br />
-        <input {...register("country")} placeholder="country" />
+        <textarea
+          rows="4"
+          cols="6"
+          style={{ padding: "5px", margin: "5px", width: "30%" }}
+          {...register("description", { required: true })}
+          placeholder="Description"
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />{" "}
         <br />
-        <input {...register("city")} placeholder="city" />
+        <input
+          accept="image/*"
+          multiple
+          type="file"
+          style={{ padding: "5px", margin: "5px", width: "30%" }}
+          {...register("image", { required: true })}
+          placeholder="Image"
+          onChange={(e) => setImg(e.target.files[0])}
+          required
+        />{" "}
+        <Button variant="primary" type="submit">
+          Add
+        </Button>
         <br />
-        <input {...register("url")} placeholder="url" />
-
-        <input type="submit" />
+        {errors.exampleRequired && <span>This field is required</span>}
       </form>
     </div>
   );
