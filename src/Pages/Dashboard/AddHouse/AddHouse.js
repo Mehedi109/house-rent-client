@@ -28,12 +28,13 @@ const AddHouse = () => {
     formData.append("description", description);
     formData.append("image", img);
     console.log(formData);
-    fetch("https://agile-sierra-38761.herokuapp.com/addCategories", {
+    fetch("http://localhost:5000/addHouse", {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+
     alert("data added");
   };
   return (

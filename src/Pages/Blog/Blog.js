@@ -12,42 +12,62 @@ const Blog = () => {
     <div>
       <Header />
       <Container>
-        <Row className="g-5">
+        <Row className="g-5 mt-5 mb-5">
           <Col xs={12} md={6} lg={4}>
-            <Card className="">
+            <Card className="shadow-lg" style={{ border: "none" }}>
               <a
                 target="blank"
                 href="https://medium.com/@mehedialam109/saas-and-media-query-394f96870ffc"
+                style={{ textDecoration: "none" }}
               >
                 <Card.Img
                   className="blog-image blog"
                   variant="top"
                   src={img1}
+                  style={{ height: "185px" }}
                 />
-                <Card.Body>
-                  <h6>CSS important topics</h6>
+                <Card.Body style={{ height: "100px" }}>
+                  <h5 className="mt-3">CSS important topics</h5>
                 </Card.Body>
               </a>
             </Card>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <Card>
-              <Card.Img variant="top" src={img2} />
-              <Card.Body>
-                <a href="https://medium.com/@mehedialam109/saas-and-media-query-394f96870ffc">
-                  CSS
-                </a>
-              </Card.Body>
+            <Card className="shadow-lg" style={{ border: "none" }}>
+              <a
+                target="blank"
+                href="https://medium.com/@mehedialam109/saas-and-media-query-394f96870ffc"
+                style={{ textDecoration: "none" }}
+              >
+                <Card.Img
+                  className="blog-image blog"
+                  variant="top"
+                  src={img2}
+                  style={{ height: "185px" }}
+                />
+                <Card.Body style={{ height: "100px" }}>
+                  <h5 className="mt-3">CSS important topics</h5>
+                </Card.Body>
+              </a>
             </Card>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <Card>
-              <Card.Img variant="top" src={img3} />
-              <Card.Body>
-                <a href="https://medium.com/@mehedialam109/saas-and-media-query-394f96870ffc">
-                  CSS
-                </a>
-              </Card.Body>
+            <Card className="shadow-lg" style={{ border: "none" }}>
+              <a
+                target="blank"
+                href="https://medium.com/@mehedialam109/saas-and-media-query-394f96870ffc"
+                style={{ textDecoration: "none" }}
+              >
+                <Card.Img
+                  className="blog-image blog"
+                  variant="top"
+                  src={img3}
+                  style={{ height: "185px" }}
+                />
+                <Card.Body style={{ height: "100px" }}>
+                  <h5 className="mt-3">CSS important topics</h5>
+                </Card.Body>
+              </a>
             </Card>
           </Col>
         </Row>

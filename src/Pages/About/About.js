@@ -11,8 +11,13 @@ const About = () => {
     <>
       <Header />
       <div className="about mb-5">
-        <div className="about-banner">
-          <h2>About Us</h2>
+        <div className="about-header">
+          <div className="about-banner">
+            <div></div>
+          </div>
+          <div className="about-heading">
+            <h2>About Us</h2>
+          </div>
         </div>
         <div className="about-body">
           <Container>

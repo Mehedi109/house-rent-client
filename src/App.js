@@ -9,6 +9,7 @@ import Login from "./Pages/Login/Login/Login";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Register from "./Pages/Login/Register/Register";
 import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
+import Houses from "./Pages/Dashboard/Houses/Houses";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route path="/dashboard/addHouse" element={<AddHouse />} />
+              <Route path="/dashboard/showHouse" element={<Houses />} />
             </Route>
           </Routes>
         </Router>

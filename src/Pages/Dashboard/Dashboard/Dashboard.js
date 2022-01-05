@@ -12,6 +12,18 @@ const Dashboard = () => {
           <Nav.Link
             style={{ color: "white" }}
             as={Link}
+            to="/dashboard/showHouse"
+          >
+            {" "}
+            <i class="far fa-home" style={{ backgroundColor: "white" }}></i>
+            Houses
+          </Nav.Link>
+        </li>
+        <li>
+          <i className="fal fa-house"></i>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
             to="/dashboard/addHouse"
           >
             {" "}
