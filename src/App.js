@@ -9,6 +9,7 @@ import Blog from "./Pages/Blog/Blog";
 import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
 import Rent from "./Pages/Rent/Rent";
 import Header from "./Pages/Shared/Header/Header";
+import Purchase from "./Pages/Rent/Purchase";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/rent" element={<Rent />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/purchase/:id" element={<Purchase />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="/dashboard/addHouse" element={<AddHouse />} />
           </Route>

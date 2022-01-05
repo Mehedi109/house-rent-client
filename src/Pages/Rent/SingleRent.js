@@ -1,8 +1,9 @@
 import React from "react";
-import { Col, Card } from "react-bootstrap";
+import { Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const SingleRent = ({ rent }) => {
-  const { Name, Price, discrition, country, city, url } = rent;
+  const { Name, Price, discrition, country, city, url, _id } = rent;
   return (
     <div>
       {Array.from({ length: 1 }).map((_, idx) => (
@@ -16,7 +17,12 @@ const SingleRent = ({ rent }) => {
               <Card.Text>
                 Location: {country}, {city}
               </Card.Text>
-              <Card.Text></Card.Text>
+              <Link
+                to={`/purchase/${_id}`}
+                // style={{ margin: "auto", textDecoration: "none" }}
+              >
+                <Button>purchase</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
