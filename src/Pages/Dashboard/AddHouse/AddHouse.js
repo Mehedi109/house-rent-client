@@ -6,7 +6,7 @@ const AddHouse = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5000/rent", data);
+    axios.post("https://guarded-savannah-79349.herokuapp.com/rent", data);
   };
 
   return (
