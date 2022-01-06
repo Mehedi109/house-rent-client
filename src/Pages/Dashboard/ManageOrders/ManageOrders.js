@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import Order from "../../Order/Order";
 
-const Houses = () => {
-  const [houses, setHouses] = useState([]);
+const ManageOrders = () => {
+  const [orders, setOrders] = useState([]);
   let serial = 1;
   useEffect(() => {
-    const url = "http://localhost:5000/houses";
+    const url = "http://localhost:5000/orders";
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setHouses(data));
+      .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/houses/${id}`;
+    const url = `http://localhost:5000/order/${id}`;
     const proceed = window.confirm("Are you sure to remove");
     if (proceed) {
       fetch(url, {
@@ -22,44 +23,39 @@ const Houses = () => {
         .then((data) => {
           if (data.deletedCount) {
             alert("Removed Successfully");
-            const remaining = houses.filter((house) => house._id !== id);
-            setHouses(remaining);
+            const remaining = orders.filter((house) => house._id !== id);
+            setOrders(remaining);
           }
         });
     }
   };
-
   return (
     <div>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
             <th>Country</th>
             <th>City</th>
-            <th>Image</th>
             <th>Rent</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {houses.map((house) => (
+          {orders.map((order) => (
             <tr>
               <td>{serial++}</td>
-              <td>{house.country}</td>
-              <td>{house.city}</td>
-              <td>
-                <img
-                  src={`data:image/jpg;base64,${house.image}`}
-                  alt=""
-                  width="100"
-                />
-              </td>
-              <td>{house.rent}</td>
+              <td>{order.name}</td>
+              <td>{order.email}</td>
+              <td>{order.country}</td>
+              <td>{order.city}</td>
+              <td>{order.rent}</td>
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handleDelete(house._id)}
+                  onClick={() => handleDelete(order._id)}
                 >
                   Remove
                 </button>
@@ -72,4 +68,4 @@ const Houses = () => {
   );
 };
 
-export default Houses;
+export default ManageOrders;

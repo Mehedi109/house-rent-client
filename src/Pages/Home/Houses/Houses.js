@@ -38,7 +38,7 @@ const Houses = () => {
       <Container className="mb-5">
         <Row className="g-5">
           {houses.map((house) => (
-            <House house={house} key={house._id}></House>
+            <House key={house._id} house={house}></House>
           ))}
         </Row>
       </Container>
