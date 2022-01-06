@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Container,
@@ -12,8 +12,16 @@ import "./Houses.css";
 import img1 from "../../../images/img-1.jpg";
 import img2 from "../../../images/img-2.jpg";
 import img3 from "../../../images/img-3.jpg";
+import House from "../House/House";
 
 const Houses = () => {
+  const [houses, setHouses] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/houses")
+      .then((res) => res.json())
+      .then((data) => setHouses(data));
+  }, []);
   return (
     <div>
       <h3 className="mt-5 mb-4">Houses</h3>
@@ -29,52 +37,9 @@ const Houses = () => {
       </InputGroup>
       <Container className="mb-5">
         <Row className="g-5">
-          <Col xs={12} md={8} lg={4}>
-            <Card>
-              <Card.Img variant="top" src={img1} />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
-                <Button>Book Now</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col xs={12} md={8} lg={4}>
-            <Card>
-              <Card.Img variant="top" src={img2} />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
-                <Button>Book Now</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col xs={12} md={8} lg={4}>
-            <Card>
-              <Card.Img variant="top" src={img3} />
-              <Card.Body>
-                <Card.Title>Card title</Card.Title>
-                <Card.Text>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
-                <Button>Book Now</Button>
-              </Card.Body>
-              {/* <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer> */}
-            </Card>
-          </Col>
+          {houses.map((house) => (
+            <House house={house} key={house._id}></House>
+          ))}
         </Row>
       </Container>
     </div>
