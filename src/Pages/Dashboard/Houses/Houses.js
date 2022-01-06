@@ -3,12 +3,32 @@ import { Table } from "react-bootstrap";
 
 const Houses = () => {
   const [houses, setHouses] = useState([]);
+  let serial = 1;
   useEffect(() => {
     const url = "http://localhost:5000/houses";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setHouses(data));
   }, []);
+
+  const handleDelete = (id) => {
+    const url = `http://localhost:5000/houses/${id}`;
+    const proceed = window.confirm("Are you sure to remove");
+    if (proceed) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            alert("Removed Successfully");
+            const remaining = houses.filter((house) => house._id !== id);
+            setHouses(remaining);
+          }
+        });
+    }
+  };
+
   return (
     <div>
       <Table striped bordered hover responsive>
@@ -25,10 +45,25 @@ const Houses = () => {
         <tbody>
           {houses.map((house) => (
             <tr>
-              <td>1</td>
+              <td>{serial++}</td>
               <td>{house.country}</td>
               <td>{house.city}</td>
+              <td>
+                <img
+                  src={`data:image/jpg;base64,${house.image}`}
+                  alt=""
+                  width="100"
+                />
+              </td>
               <td>{house.rent}</td>
+              <td>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(house._id)}
+                >
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
