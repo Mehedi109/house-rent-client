@@ -10,10 +10,12 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Register from "./Pages/Login/Register/Register";
 import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
 import Houses from "./Pages/Dashboard/Houses/Houses";
+import Contact from "./Pages/Contact/Contact";
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <AuthProvider>
         <Router>
           <Routes>
@@ -29,6 +31,21 @@ function App() {
           </Routes>
         </Router>
       </AuthProvider>
+=======
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="/dashboard/addHouse" element={<AddHouse />} />
+            <Route path="/dashboard/showHouse" element={<Houses />} />
+          </Route>
+        </Routes>
+      </Router>
+>>>>>>> Mehedi-Alam
     </div>
   );
 }
