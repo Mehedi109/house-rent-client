@@ -31,6 +31,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order/:id" element={<Order />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route path="/dashboard/addHouse" element={<AddHouse />} />
               <Route path="/dashboard/showHouse" element={<Houses />} />
