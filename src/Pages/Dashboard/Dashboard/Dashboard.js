@@ -8,27 +8,23 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="menubar">
         <li>
-          <i className="fal fa-house"></i>
           <Nav.Link
             style={{ color: "white" }}
             as={Link}
             to="/dashboard/showHouse"
           >
             {" "}
-            <i class="far fa-home" style={{ backgroundColor: "white" }}></i>
             Houses
           </Nav.Link>
         </li>
         <li>
-          <i className="fal fa-house"></i>
           <Nav.Link
             style={{ color: "white" }}
             as={Link}
             to="/dashboard/addHouse"
           >
             {" "}
-            <i class="far fa-home" style={{ backgroundColor: "white" }}></i> Add
-            House
+            Add House
           </Nav.Link>
         </li>
         <li>
@@ -37,11 +33,17 @@ const Dashboard = () => {
             as={Link}
             to="/dashboard/manageOrders"
           >
-            <i class="fal fa-address-book"></i> Manage Orders
+            Manage Orders
           </Nav.Link>
         </li>
         <li>
-          <Nav.Link style={{ color: "white" }}>Messages</Nav.Link>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/messages"
+          >
+            Messages
+          </Nav.Link>
         </li>
       </div>
       <div className="dashboard-body">
