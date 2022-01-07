@@ -1,79 +1,103 @@
 import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import { Box } from "@mui/system";
+import { Grid, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
 import {
-  Alert,
-  Button,
-  Col,
-  Container,
-  Form,
-  Row,
-  Spinner,
-} from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+  Link,
+  Navigate,
+  useHistory,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 import useAuth from "../../../hooks/useAuth";
-import "./Login.css";
+// import useAuth from "../Hooks/useAuth";
 
 const Login = () => {
-  const [loginData, setloginData] = useState({});
-  const { user, loginUser, isLoading, authError } = useAuth();
-  const handleOnChange = (e) => {
+  const [userData, setUserData] = useState({});
+  const { signIn, isLoading } = useAuth();
+  const history = useNavigate();
+  // const location = Navigate();
+
+  const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
-    setloginData(newLoginData);
+    const newUserData = { ...userData };
+    newUserData[field] = value;
+    setUserData(newUserData);
   };
-  const handleLoginSub = (e) => {
-    loginUser(loginData.email, loginData.password);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    signIn(userData.email, userData.password);
+    document.getElementById("myForm").reset();
   };
   return (
-    // <Container>
-    <div className="login-form shadow-lg mt-5">
-      <h3>Login</h3>
-      <Form onSubmit={handleLoginSub}>
-        <Col sm={10} md={12} lg={6} className="mx-auto">
-          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-            <Form.Label column sm={2}>
-              Email
-            </Form.Label>
-            <Form.Control
-              onChange={handleOnChange}
-              type="email"
-              placeholder="Email"
-            />
-          </Form.Group>
-        </Col>
-        <Col sm={10} md={12} lg={6} className="mx-auto">
-          <Form.Group
-            as={Row}
-            className="mb-3"
-            controlId="formHorizontalPassword"
-          >
-            <Form.Label style={{ textAlign: "start" }}>Password</Form.Label>
-            <Form.Control
-              onChange={handleOnChange}
-              type="password"
-              placeholder="Password"
-            />
-          </Form.Group>
-        </Col>
-        <Button sx={{ width: 1, m: 1 }} type="submit" variant="success">
-          Login
-        </Button>{" "}
-        <br />
-        <NavLink style={{ textDecoration: "none" }} to="/register">
-          <Button variant="text">New User? Please Register</Button>
-        </NavLink>
-      </Form>
-      {isLoading && (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      )}
-      {user?.email && <Alert variant="danger">Register Successfully</Alert>}
-      {authError && <Alert variant="danger">{authError}</Alert>}
-    </div>
-    // </Container>
+    <Box>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={12} md={6}>
+          <img
+            style={{ width: "100%" }}
+            src="https://i.ibb.co/9tybF8Y/4957136.jpg"
+            alt=""
+          />
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={4}
+          style={{
+            background: "white",
+            height: "200px",
+            width: "2px",
+            marginTop: "85px",
+          }}
+        >
+          <Typography variant="h3" component="div" gutterBottom>
+            Log In
+          </Typography>
+
+          {!isLoading && (
+            <form onSubmit={handleSubmit} id="myForm">
+              <TextField
+                required
+                id="standard-basic"
+                label="Your Email"
+                type="email"
+                name="email"
+                onBlur={handleOnBlur}
+                style={{ width: "80%", margin: "5px" }}
+                variant="standard"
+              />
+
+              <TextField
+                required
+                autoComplete="off"
+                id="standard-basic"
+                label="password"
+                name="password"
+                type="password"
+                onBlur={handleOnBlur}
+                style={{ width: "80%", margin: "5px" }}
+                variant="standard"
+              />
+              <br />
+
+              <Button type="submit" variant="contained" className="mt-2">
+                LogIn
+              </Button>
+            </form>
+          )}
+          {isLoading && <CircularProgress />}
+          <p className="mt-3">
+            New User? <Link to="/register">Register Now</Link>
+          </p>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

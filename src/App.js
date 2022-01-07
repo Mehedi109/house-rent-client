@@ -12,12 +12,14 @@ import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
 import Houses from "./Pages/Dashboard/Houses/Houses";
 import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
+import Header from "./Pages/Shared/Header/Header";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
+          {/* <Header></Header> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
