@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(userData.email, userData.password);
+    signIn(userData.email, userData.password, history);
     document.getElementById("myForm").reset();
   };
   return (
