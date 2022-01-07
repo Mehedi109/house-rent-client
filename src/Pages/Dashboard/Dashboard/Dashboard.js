@@ -32,7 +32,11 @@ const Dashboard = () => {
           </Nav.Link>
         </li>
         <li>
-          <Nav.Link style={{ color: "white" }}>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/manageOrders"
+          >
             <i class="fal fa-address-book"></i> Manage Orders
           </Nav.Link>
         </li>
