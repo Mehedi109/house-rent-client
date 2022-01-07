@@ -15,13 +15,15 @@ import {
 const Register = () => {
   const [loginData, setloginData] = useState({});
   const { user, registerUser, isLoading, authError } = useAuth();
-  const handleOnChange = (e) => {
+  const handleOnBlur = (e) => {
     const field = e.target.name;
+    console.log(field);
     const value = e.target.value;
     const newLoginData = { ...loginData };
     newLoginData[field] = value;
     setloginData(newLoginData);
   };
+  console.log(loginData);
   const handleLoginSub = (e) => {
     if (loginData.password !== loginData.passwordconfirm) {
       alert("Your password did not match");
@@ -31,70 +33,81 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    <Container>
+    // <Container>
+    <div className="login-form shadow-lg mt-5">
+      <h3>Regiser</h3>
       <Form onSubmit={handleLoginSub}>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Name
+            </Form.Label>
             <Form.Control
-              onChange={handleOnChange}
+              onChange={handleOnBlur}
               type="email"
-              placeholder="Email"
+              // placeholder="Email"
             />
-          </Col>
-        </Form.Group>
-
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalPassword"
-        >
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
+          </Form.Group>
+        </Col>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email
+            </Form.Label>
             <Form.Control
-              onChange={handleOnChange}
-              type="password"
-              placeholder="Password"
+              onChange={handleOnBlur}
+              type="email"
+              // placeholder="Email"
             />
-          </Col>
-        </Form.Group>
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalPassword"
-        >
-          <Form.Label column sm={2}>
-            Re type Password
-          </Form.Label>
-          <Col sm={10}>
+          </Form.Group>
+        </Col>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formHorizontalPassword"
+          >
+            <Form.Label style={{ textAlign: "start" }}>Password</Form.Label>
             <Form.Control
-              onChange={handleOnChange}
+              onChange={handleOnBlur}
               type="password"
-              placeholder="Password"
+              // placeholder="Password"
             />
-          </Col>
-        </Form.Group>
-
-        <Button sx={{ width: 1, m: 1 }} type="submit" variant="contained">
+          </Form.Group>
+        </Col>
+        <Col sm={10} md={12} lg={6} className="mx-auto">
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formHorizontalPassword"
+          >
+            <Form.Label style={{ textAlign: "start" }}>
+              Confirm Password
+            </Form.Label>
+            <Form.Control
+              onChange={handleOnBlur}
+              type="password"
+              // placeholder="Confirm Password"
+            />
+          </Form.Group>
+        </Col>
+        <Button sx={{ width: 1, m: 1 }} type="submit" variant="success">
           Register
-        </Button>
+        </Button>{" "}
+        <br />
         <NavLink style={{ textDecoration: "none" }} to="/login">
-          <Button variant="text">Already Registered? Please Login</Button>
+          <Button variant="text">Already registered? please login</Button>
         </NavLink>
       </Form>
-
       {isLoading && (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
-      {user?.email && <Alert severity="success">Register Successfully</Alert>}
-      {authError && <Alert severity="error">{authError}</Alert>}
-    </Container>
+      {user?.email && <Alert variant="danger">Register Successfully</Alert>}
+      {authError && <Alert variant="danger">{authError}</Alert>}
+    </div>
+    // </Container>
   );
 };
 
