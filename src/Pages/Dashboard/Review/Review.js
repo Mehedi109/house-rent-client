@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Footer from "../Shared/Footer/Footer";
-import Header from "../Shared/Header/Header";
 // import Header from "../shared/Header/Header";
 
 const Review = () => {
@@ -31,7 +29,6 @@ const Review = () => {
 
   return (
     <div>
-      <Header />
       <Container className="mb-5">
         <h3 className="h1-responsive font-weight-bold text-center my-4">
           Hit a review
@@ -65,13 +62,12 @@ const Review = () => {
           />{" "}
           <br />
           <Button variant="primary" type="submit">
-            Send
+            Post
           </Button>
           <br />
           {errors.exampleRequired && <span>This field is required</span>}
         </form>
       </Container>
-      <Footer />
     </div>
   );
 };

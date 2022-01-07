@@ -45,10 +45,17 @@ const Dashboard = () => {
             Messages
           </Nav.Link>
         </li>
+        <li>
+          <Nav.Link style={{ color: "white" }} as={Link} to="/dashboard/review">
+            Review
+          </Nav.Link>
+        </li>
       </div>
       <div className="dashboard-body">
         <h4 className="">Dashboard</h4>
-        <Outlet></Outlet>
+        <Container>
+          <Outlet></Outlet>
+        </Container>
       </div>
     </div>
   );
