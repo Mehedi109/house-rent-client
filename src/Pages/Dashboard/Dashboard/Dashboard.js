@@ -8,41 +8,54 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="menubar">
         <li>
-          <i className="fal fa-house"></i>
           <Nav.Link
             style={{ color: "white" }}
             as={Link}
             to="/dashboard/showHouse"
           >
             {" "}
-            <i class="far fa-home" style={{ backgroundColor: "white" }}></i>
             Houses
           </Nav.Link>
         </li>
         <li>
-          <i className="fal fa-house"></i>
           <Nav.Link
             style={{ color: "white" }}
             as={Link}
             to="/dashboard/addHouse"
           >
             {" "}
-            <i class="far fa-home" style={{ backgroundColor: "white" }}></i> Add
-            House
+            Add House
           </Nav.Link>
         </li>
         <li>
-          <Nav.Link style={{ color: "white" }}>
-            <i class="fal fa-address-book"></i> Manage Orders
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/manageOrders"
+          >
+            Manage Orders
           </Nav.Link>
         </li>
         <li>
-          <Nav.Link style={{ color: "white" }}>Messages</Nav.Link>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/messages"
+          >
+            Messages
+          </Nav.Link>
+        </li>
+        <li>
+          <Nav.Link style={{ color: "white" }} as={Link} to="/dashboard/review">
+            Review
+          </Nav.Link>
         </li>
       </div>
       <div className="dashboard-body">
         <h4 className="">Dashboard</h4>
-        <Outlet></Outlet>
+        <Container>
+          <Outlet></Outlet>
+        </Container>
       </div>
     </div>
   );
