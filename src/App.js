@@ -7,12 +7,14 @@ import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login/Login";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
-import Register from "./Pages/Login/Register/Register";
 import AddHouse from "./Pages/Dashboard/AddHouse/AddHouse";
 import Houses from "./Pages/Dashboard/Houses/Houses";
 import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
 import Header from "./Pages/Shared/Header/Header";
+
+import A from "./A";
+import Register from "./Pages/Login/Register/Register";
 
 function App() {
   return (

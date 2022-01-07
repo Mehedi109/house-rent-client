@@ -39,7 +39,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const { register, isLoading } = useAuth();
   const history = useNavigate();
-  const location = Navigate();
+  // const location = Navigate();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -59,8 +59,8 @@ const Register = () => {
       userData.email,
       userData.name,
       userData.password1,
-      history,
-      location
+      history
+      // location
     );
 
     setError("");
