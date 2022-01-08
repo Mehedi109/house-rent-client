@@ -38,7 +38,7 @@ const Register = () => {
   const [userData, setUserData] = useState({});
   const [error, setError] = useState("");
   const { register, isLoading } = useAuth();
-  const history = useNavigate();
+  const navigate = useNavigate();
   // const location = Navigate();
 
   const handleOnBlur = (e) => {
@@ -59,7 +59,7 @@ const Register = () => {
       userData.email,
       userData.name,
       userData.password1,
-      history
+      navigate
       // location
     );
 
@@ -97,9 +97,7 @@ const Register = () => {
             marginTop: "85px",
           }}
         >
-          <Typography variant="h3" component="div" gutterBottom>
-            Register
-          </Typography>
+          <h3> Register</h3>
 
           {!isLoading && (
             <form onSubmit={handlerUserForm} id="myform">

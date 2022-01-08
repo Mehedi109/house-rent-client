@@ -18,7 +18,7 @@ const Login = () => {
   const [userData, setUserData] = useState({});
   const { signIn, isLoading } = useAuth();
   const history = useNavigate();
-  // const location = Navigate();
+  const location = useLocation();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signIn(userData.email, userData.password, history);
+    signIn(userData.email, userData.password, history, location);
     document.getElementById("myForm").reset();
   };
   return (
