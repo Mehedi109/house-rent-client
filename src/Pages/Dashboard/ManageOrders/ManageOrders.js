@@ -31,6 +31,7 @@ const ManageOrders = () => {
   };
   return (
     <div>
+      <h5 className="mb-4">Order List</h5>
       <Table striped bordered hover responsive>
         <thead>
           <tr>

@@ -24,6 +24,7 @@ const useFirebase = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        setError("");
         const newUser = { email, displayName: name };
         setUser(newUser);
         saveUser(email, name);
@@ -78,9 +79,7 @@ const useFirebase = () => {
   // admin
   useEffect(() => {
     if (user.email) {
-      fetch(
-        `https://guarded-retreat-48750.herokuapp.com/userAdmin/${user.email}`
-      )
+      fetch(`http://localhost/users/${user.email}`)
         .then((res) => res.json())
         .then((data) => setAdmin(data.admin));
     }
@@ -100,7 +99,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName) => {
     setIsLoading(true);
     const user = { email, displayName };
-    fetch("https://guarded-retreat-48750.herokuapp.com/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

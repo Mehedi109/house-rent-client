@@ -31,6 +31,7 @@ const Houses = () => {
 
   return (
     <div>
+      <h5 className="mb-4">House List</h5>
       <Table striped bordered hover responsive>
         <thead>
           <tr>

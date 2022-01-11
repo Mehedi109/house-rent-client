@@ -30,6 +30,7 @@ const Messages = () => {
   };
   return (
     <div>
+      <h5 className="mb-4">Messages</h5>
       <Table striped bordered hover responsive>
         <thead>
           <tr>

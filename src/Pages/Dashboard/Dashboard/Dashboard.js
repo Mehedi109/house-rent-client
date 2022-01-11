@@ -46,6 +46,15 @@ const Dashboard = () => {
           </Nav.Link>
         </li>
         <li>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/makeAdmin"
+          >
+            Make Admin
+          </Nav.Link>
+        </li>
+        <li>
           <Nav.Link style={{ color: "white" }} as={Link} to="/dashboard/review">
             Review
           </Nav.Link>
