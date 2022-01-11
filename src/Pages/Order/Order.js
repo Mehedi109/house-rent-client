@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 // import useAuth from "../../../hooks/useAuth";
 import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
+import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 
 const Order = () => {
   const { id } = useParams();
+  const { user } = useAuth();
   const [order, setOrder] = useState([]);
-  const [hour, setHour] = useState();
   //   const { user, isLoading } = useAuth();
 
   const {
@@ -18,7 +20,6 @@ const Order = () => {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(hour);
 
   const url = `http://localhost:5000/houses/${id}`;
 
@@ -68,13 +69,13 @@ const Order = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
                 style={{ margin: "5px" }}
-                defaultValue={"displayName"}
+                defaultValue={user.displayName}
                 {...register("name")}
               />{" "}
               <br />
               <input
                 style={{ margin: "5px" }}
-                defaultValue={"email"}
+                defaultValue={user.email}
                 {...register("email", { required: true })}
               />{" "}
               <br />

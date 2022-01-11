@@ -16,6 +16,8 @@ import Blog from "./Pages/Blog/Blog";
 import Order from "./Pages/Order/Order";
 import Messages from "./Pages/Dashboard/Messages/Messages";
 import Review from "./Pages/Dashboard/Review/Review";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
             <Route path="/dashboard/showHouse" element={<Houses />} />
             <Route path="/dashboard/manageOrders" element={<ManageOrders />} />
             <Route path="/dashboard/messages" element={<Messages />} />
+            <Route path="/dashboard/myOrders" element={<MyOrders />} />
             <Route path="/dashboard/review" element={<Review />} />
           </Route>
         </Routes>
