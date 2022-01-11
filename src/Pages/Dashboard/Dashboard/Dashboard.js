@@ -55,6 +55,15 @@ const Dashboard = () => {
           </Nav.Link>
         </li>
         <li>
+          <Nav.Link
+            style={{ color: "white" }}
+            as={Link}
+            to="/dashboard/myOrders"
+          >
+            My Orders
+          </Nav.Link>
+        </li>
+        <li>
           <Nav.Link style={{ color: "white" }} as={Link} to="/dashboard/review">
             Review
           </Nav.Link>

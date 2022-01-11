@@ -16,6 +16,7 @@ import Blog from "./Pages/Blog/Blog";
 import Order from "./Pages/Order/Order";
 import Messages from "./Pages/Dashboard/Messages/Messages";
 import Review from "./Pages/Dashboard/Review/Review";
+import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               />
               <Route path="/dashboard/messages" element={<Messages />} />
               <Route path="/dashboard/review" element={<Review />} />
+              <Route path="/dashboard/myOrders" element={<MyOrders />} />
               <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
             </Route>
           </Routes>
