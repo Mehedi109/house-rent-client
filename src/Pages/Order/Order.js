@@ -21,7 +21,7 @@ const Order = () => {
     formState: { errors },
   } = useForm();
 
-  const url = `http://localhost:5000/houses/${id}`;
+  const url = `https://guarded-savannah-79349.herokuapp.com/houses/${id}`;
 
   useEffect(() => {
     fetch(url)
@@ -31,7 +31,7 @@ const Order = () => {
   console.log(order.price);
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/order", {
+    fetch("https://guarded-savannah-79349.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
