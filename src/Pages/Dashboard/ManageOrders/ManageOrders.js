@@ -6,14 +6,14 @@ const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
   let serial = 1;
   useEffect(() => {
-    const url = "http://localhost:5000/orders";
+    const url = "https://guarded-savannah-79349.herokuapp.com/orders";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://guarded-savannah-79349.herokuapp.com/order/${id}`;
     const proceed = window.confirm("Are you sure to remove");
     if (proceed) {
       fetch(url, {
