@@ -5,14 +5,14 @@ const Houses = () => {
   const [houses, setHouses] = useState([]);
   let serial = 1;
   useEffect(() => {
-    const url = "http://localhost:5000/houses";
+    const url = "https://guarded-savannah-79349.herokuapp.com/houses";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setHouses(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/houses/${id}`;
+    const url = `https://guarded-savannah-79349.herokuapp.com/houses/${id}`;
     const proceed = window.confirm("Are you sure to remove");
     if (proceed) {
       fetch(url, {

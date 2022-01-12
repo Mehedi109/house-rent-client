@@ -5,15 +5,15 @@ const Messages = () => {
   const [messages, setMessages] = useState([]);
   let serial = 1;
   useEffect(() => {
-    const url = "http://localhost:5000/contact";
+    const url = "https://guarded-savannah-79349.herokuapp.com/contact";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMessages(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/contact/${id}`;
-    const proceed = window.confirm("Are you sure to delete");
+    const url = `https://guarded-savannah-79349.herokuapp.com/contact/${id}`;
+    const proceed = window.confirm("Are you sure to remove");
     if (proceed) {
       fetch(url, {
         method: "DELETE",

@@ -10,7 +10,7 @@ const MakeAdmin = () => {
   };
   const handleAddAdmin = (e) => {
     const user = { email };
-    const url = "http://localhost:5000/users/admin";
+    const url = "https://guarded-savannah-79349.herokuapp.com/users/admin";
     fetch(url, {
       method: "PUT",
       headers: {
