@@ -18,7 +18,7 @@ const Houses = () => {
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/houses")
+    fetch("https://guarded-savannah-79349.herokuapp.com/houses")
       .then((res) => res.json())
       .then((data) => setHouses(data));
   }, []);
