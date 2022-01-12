@@ -5,33 +5,41 @@ import useAuth from "../../../hooks/useAuth";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const { admin } = useAuth();
+  const { user, admin } = useAuth();
   return (
     <div className="dashboard">
       <div className="menubar">
-        <li>
-          <Nav.Link
-            style={{ color: "white" }}
-            as={Link}
-            to="/dashboard/myOrders"
-          >
-            My Orders
-          </Nav.Link>
-        </li>
-        <li>
-          <Nav.Link
-            style={{ color: "white" }}
-            as={Link}
-            to="/dashboard/myMessage"
-          >
-            My Message
-          </Nav.Link>
-        </li>
-        <li>
-          <Nav.Link style={{ color: "white" }} as={Link} to="/dashboard/review">
-            Review
-          </Nav.Link>
-        </li>
+        {user.email && (
+          <>
+            <li>
+              <Nav.Link
+                style={{ color: "white" }}
+                as={Link}
+                to="/dashboard/myOrders"
+              >
+                My Orders
+              </Nav.Link>
+            </li>
+            <li>
+              <Nav.Link
+                style={{ color: "white" }}
+                as={Link}
+                to="/dashboard/myMessage"
+              >
+                My Message
+              </Nav.Link>
+            </li>
+            <li>
+              <Nav.Link
+                style={{ color: "white" }}
+                as={Link}
+                to="/dashboard/review"
+              >
+                Review
+              </Nav.Link>
+            </li>
+          </>
+        )}
         {admin && (
           <>
             <li>
