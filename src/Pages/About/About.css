@@ -1,22 +1,22 @@
-.about-header {
+/* .about-header {
   position: relative;
-}
-.about-header .about-banner {
+} */
+
+/* .about-header .about-banner {
   position: absolute;
   display: block;
-  /* background: #000; */
   height: 80vh;
-  /* opacity: 0.2; */
   position: relative;
   z-index: -1;
-}
+} */
+
 .about-banner {
   background: #000;
 }
+
 .about-banner div {
   background-image: url("../../images/img-3.jpg");
   display: block;
-  /* position: absolute; */
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,13 +26,14 @@
 .about-heading {
   white-space: pre-wrap;
   position: relative;
-  bottom: 230px;
+  bottom: 240px;
   color: white;
 }
+
 .about-body {
   margin-top: 50px;
 }
+
 .about-content {
   text-align: justify;
-  /* padding-left: 20px; */
 }

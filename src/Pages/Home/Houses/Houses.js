@@ -16,28 +16,42 @@ import House from "../House/House";
 
 const Houses = () => {
   const [houses, setHouses] = useState([]);
+  const [displayHouses, setDisplayHouses] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/houses")
       .then((res) => res.json())
-      .then((data) => setHouses(data));
+      // .then((data) => setHouses(data));
+      .then((data) => {
+        setHouses(data);
+        setDisplayHouses(data);
+      });
   }, []);
+
+  const handleSearch = (e) => {
+    const searchText = e.target.value;
+    const matchedHouses = houses.filter(
+      (house) =>
+        house.country.toLowerCase().includes(searchText.toLowerCase()) ||
+        house.city.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayHouses(matchedHouses);
+  };
+
   return (
     <div>
-      <h3 className="mt-5 mb-4">Houses</h3>
-      <InputGroup className="mb-3 w-25 search-button">
+      <h3 className="mb-4">Houses</h3>
+      <InputGroup className="mb-3 search-button">
         <FormControl
+          onChange={handleSearch}
           placeholder="Enter that you searching"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        <Button variant="outline-secondary" id="button-addon2">
-          Search
-        </Button>
       </InputGroup>
       <Container className="mb-5">
-        <Row className="g-5">
-          {houses.map((house) => (
+        <Row className="g-4">
+          {displayHouses.map((house) => (
             <House key={house._id} house={house}></House>
           ))}
         </Row>

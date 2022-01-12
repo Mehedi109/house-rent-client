@@ -23,7 +23,7 @@ const About = () => {
           <Container>
             <Row>
               <Col xs={12} md={12} lg={6}>
-                <img src={img2} alt="" />
+                <img src={img2} alt="" className="img-fluid" />
               </Col>
               <Col xs={12} md={12} lg={6} className="about-content p-5">
                 <h3>About Us</h3>

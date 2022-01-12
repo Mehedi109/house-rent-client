@@ -18,6 +18,9 @@ import Messages from "./Pages/Dashboard/Messages/Messages";
 import Review from "./Pages/Dashboard/Review/Review";
 import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import MyMessage from "./Pages/Dashboard/MyMessage/MyMessage";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import AdminRoute from "./Pages/Login/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -32,18 +35,86 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/order/:id" element={<Order />} />
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path="/dashboard/addHouse" element={<AddHouse />} />
-              <Route path="/dashboard/showHouse" element={<Houses />} />
+            <Route
+              path="/order/:id"
+              element={
+                <PrivateRoute>
+                  <Order />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            >
+              <Route
+                path="/dashboard/addHouse"
+                element={
+                  <AdminRoute>
+                    <AddHouse />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/showHouse"
+                element={
+                  <AdminRoute>
+                    <Houses />
+                  </AdminRoute>
+                }
+              />
               <Route
                 path="/dashboard/manageOrders"
-                element={<ManageOrders />}
+                element={
+                  <AdminRoute>
+                    <ManageOrders />
+                  </AdminRoute>
+                }
               />
-              <Route path="/dashboard/messages" element={<Messages />} />
-              <Route path="/dashboard/review" element={<Review />} />
-              <Route path="/dashboard/myOrders" element={<MyOrders />} />
-              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />} />
+              <Route
+                path="/dashboard/messages"
+                element={
+                  <AdminRoute>
+                    <Messages />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/dashboard/review"
+                element={
+                  <PrivateRoute>
+                    <Review />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/dashboard/myOrders"
+                element={
+                  <PrivateRoute>
+                    <MyOrders />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/dashboard/myMessage"
+                element={
+                  <PrivateRoute>
+                    <MyMessage />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/dashboard/makeAdmin"
+                element={
+                  <AdminRoute>
+                    <MakeAdmin />
+                  </AdminRoute>
+                }
+              />
             </Route>
           </Routes>
         </Router>

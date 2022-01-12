@@ -7,7 +7,7 @@ const Reviews = () => {
     <div className="mb-5">
       <Container>
         <h3 className="mt-5 mb-3">Our happy client says</h3>
-        <Row className="g-5">
+        <Row className="g-4">
           <Col xs={12} md={6} lg={4}>
             <div
               className="card p-3 text-center px-4"

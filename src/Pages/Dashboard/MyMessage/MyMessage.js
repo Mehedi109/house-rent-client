@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import useAuth from "../../../hooks/useAuth";
 
-const Messages = () => {
-  const [messages, setMessages] = useState([]);
+const MyMessage = () => {
+  const { user } = useAuth();
+  const [orders, setOrders] = useState([]);
   let serial = 1;
+
   useEffect(() => {
-    const url = "http://localhost:5000/contact";
+    const url = `http://localhost:5000/messages?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setMessages(data));
+      .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
     const url = `http://localhost:5000/contact/${id}`;
-    const proceed = window.confirm("Are you sure to delete");
+    const proceed = window.confirm("Are you sure to delete your message");
     if (proceed) {
       fetch(url, {
         method: "DELETE",
@@ -21,9 +24,9 @@ const Messages = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-            alert("Deleted Successfully");
-            const remaining = messages.filter((message) => message._id !== id);
-            setMessages(remaining);
+            alert("Your message has deleted");
+            const remaining = orders.filter((order) => order._id !== id);
+            setOrders(remaining);
           }
         });
     }
@@ -31,28 +34,27 @@ const Messages = () => {
 
   return (
     <div>
-      <h5 className="mb-4">Messages</h5>
+      <h5 className="mb-4">My Orders</h5>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>#</th>
-            <th>Name</th>
             <th>Email</th>
             <th>Message</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {messages.map((message) => (
+          {orders.map((order) => (
             <tr>
               <td>{serial++}</td>
-              <td>{message.name}</td>
-              <td>{message.email}</td>
-              <td>{message.message}</td>
+              <td>{order.email}</td>
+              <td>{order.message}</td>
+
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handleDelete(message._id)}
+                  onClick={() => handleDelete(order._id)}
                 >
                   Delete
                 </button>
@@ -65,4 +67,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default MyMessage;

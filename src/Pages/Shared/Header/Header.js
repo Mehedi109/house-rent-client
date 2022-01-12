@@ -17,7 +17,6 @@ const Header = () => {
               <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
               <Nav.Link as={Link} to="/about">
                 About Us
               </Nav.Link>
@@ -42,12 +41,6 @@ const Header = () => {
                 </Nav.Link>
               )}
               {user.displayName && <Nav.Link>{user.displayName}</Nav.Link>}
-              {/* <Nav.Link as={Link} to="/dashboard">
-                Dashboard
-              </Nav.Link> */}
-              {/*  <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
