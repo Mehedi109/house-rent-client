@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-// import Header from "../shared/Header/Header";
+import useAuth from "../../../hooks/useAuth";
 
 const Review = () => {
   const [review, setReview] = useState([]);
+  const { user } = useAuth();
 
   const {
     register,
@@ -38,7 +39,7 @@ const Review = () => {
           <input
             style={{ padding: "5px", margin: "5px", width: "30%" }}
             {...register("name")}
-            defaultValue={"displayName"}
+            defaultValue={user.displayName}
             placeholder="Name"
             required
           />{" "}
@@ -46,7 +47,7 @@ const Review = () => {
           <input
             style={{ padding: "5px", margin: "5px", width: "30%" }}
             {...register("email")}
-            defaultValue="email"
+            defaultValue={user.email}
             placeholder="Email"
             type="email"
             required

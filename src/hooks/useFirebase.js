@@ -79,7 +79,7 @@ const useFirebase = () => {
   // admin
   useEffect(() => {
     if (user.email) {
-      fetch(`http://localhost/users/${user.email}`)
+      fetch(`https://guarded-savannah-79349.herokuapp.com/users/${user.email}`)
         .then((res) => res.json())
         .then((data) => setAdmin(data.admin));
     }
@@ -99,7 +99,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName) => {
     setIsLoading(true);
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://guarded-savannah-79349.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

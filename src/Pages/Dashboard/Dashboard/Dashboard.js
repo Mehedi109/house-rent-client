@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="menubar">
-        {user.email && (
+        {!admin && user.email && (
           <>
             <li>
               <Nav.Link
@@ -40,7 +40,7 @@ const Dashboard = () => {
             </li>
           </>
         )}
-        {admin && (
+        {admin && user.email && (
           <>
             <li>
               <Nav.Link
