@@ -23,7 +23,7 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = (data, id) => {
-    fetch("http://localhost:5000/contact", {
+    fetch("https://guarded-savannah-79349.herokuapp.com/contact", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
