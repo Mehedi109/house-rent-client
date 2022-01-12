@@ -28,7 +28,7 @@ const AddHouse = () => {
     formData.append("description", description);
     formData.append("image", img);
     console.log(formData);
-    fetch("http://localhost:5000/addHouse", {
+    fetch("https://guarded-savannah-79349.herokuapp.com/addHouse", {
       method: "POST",
       body: formData,
     })
